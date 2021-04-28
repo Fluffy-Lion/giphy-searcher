@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import GifList from '../GifList/GifList'
 import GifSearch from '../GifSearch/GifSearch'
+import Loading from '../Loading/Loading'
 
 const GifListContainer = ({ data, isLoading }) => {
 
@@ -8,7 +9,7 @@ const GifListContainer = ({ data, isLoading }) => {
     
 
     if(isLoading){
-    return <div>loading...</div>
+    return <Loading />
     }
     return (
         <div>
