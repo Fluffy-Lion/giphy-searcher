@@ -1,11 +1,25 @@
 import React, { useState } from 'react'
+import axios from 'axios'
 
-const GifSearch = ({ setSearchTerm }) => {
+const GifSearch = ({ setSearchTerm, setData }) => {
     const [input, setInput] = useState("")
-
+    const [isLoading, setIsLoading] = useState(false)
+    const searcher = async () => {
+        setIsLoading(true)
+        const res = await axios("https://api.giphy.com/v1/gifs/search", {
+            params: {
+                api_key: "2ITIevQ9rOZQvJplIV8zgsqJ7nvnn9sl",
+                q: input
+            }
+        }
+        )
+        setData(res.data.data)
+        setIsLoading(false)
+    }
     const searchHandler = (e) => {
         e.preventDefault()
         setSearchTerm(input)
+        searcher()
         setInput("")
     }
 

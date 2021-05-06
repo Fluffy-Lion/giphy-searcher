@@ -3,7 +3,6 @@ import './App.css';
 import GifListContainer from './components/GifListContainer/GifListContainer';
 import axios from 'axios'
 
-
 const App = () => {
 
   const [data, setData] = useState([])
