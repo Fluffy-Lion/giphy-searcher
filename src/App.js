@@ -4,7 +4,6 @@ import GifListContainer from './components/GifListContainer/GifListContainer';
 import axios from 'axios'
 
 
-
 const App = () => {
 
   const [data, setData] = useState([])
@@ -28,7 +27,7 @@ const App = () => {
     <div className="App">
      <h1>gwify swercher</h1>
      <div>
-       <GifListContainer isLoading={isLoading} data={data}/>
+       <GifListContainer isLoading={isLoading} data={data} setData={setData}/>
      </div>
     </div>
   );
