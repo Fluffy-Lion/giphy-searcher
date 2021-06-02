@@ -13,7 +13,8 @@ const App = () => {
       setIsLoading(true)
       const res = await axios("https://api.giphy.com/v1/gifs/trending", {
         params: {
-          api_key: "2ITIevQ9rOZQvJplIV8zgsqJ7nvnn9sl"
+          api_key: "2ITIevQ9rOZQvJplIV8zgsqJ7nvnn9sl",
+          limit: 20
         }
       }
       )
