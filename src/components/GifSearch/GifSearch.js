@@ -8,7 +8,7 @@ const GifSearch = ({ setSearchTerm, setData }) => {
         setIsLoading(true)
         const res = await axios("https://api.giphy.com/v1/gifs/search", {
             params: {
-                api_key: "2ITIevQ9rOZQvJplIV8zgsqJ7nvnn9sl",
+                api_key: process.env.REACT_APP_API_KEY,
                 q: input
             }
         }
