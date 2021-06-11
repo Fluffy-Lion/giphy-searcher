@@ -8,6 +8,17 @@ const App = () => {
   const [data, setData] = useState([])
   const [isLoading, setIsLoading] = useState(false)
   
+  const random = async () => {
+    console.log("rando")
+    const res = await axios("https://api.giphy.com/v1/gifs/random", {
+        params: {
+            api_key: process.env.REACT_APP_API_KEY,
+            // q: input
+        }
+    }
+    )
+    setData(res.data.data)
+}
   useEffect(() => {
     const fetch = async () => {
       setIsLoading(true)
@@ -27,7 +38,7 @@ const App = () => {
     <div className="App">
      <h1>gwify swercher</h1>
      <div>
-       <GifListContainer isLoading={isLoading} data={data} setData={setData}/>
+       <GifListContainer random={random} isLoading={isLoading} data={data} setData={setData}/>
      </div>
     </div>
   );

@@ -1,12 +1,14 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import axios from 'axios'
-const Random = () => {
-    const [input, setInput] = useState("")
+const GifRandom = ( { random }) => {
+    
 
-    // const collecter = async () => {
-    //     const res = await axios("https://api.giphy.com/v1/gifs/random"
-    // }
 
+    return (
+        <div>
+            <button onClick={random}>go random....like ultimate random</button>
+        </div>
+    )
 }
 
 export default GifRandom
