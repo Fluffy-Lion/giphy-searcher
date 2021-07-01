@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import axios from 'axios'
-import GifRandom from '../GifRandom/GifRandom'
 
-const GifSearch = ({ setSearchTerm, setData, random }) => {
+
+const GifSearch = ({ setSearchTerm, setData }) => {
     const [input, setInput] = useState("")
     const [isLoading, setIsLoading] = useState(false)
     const searcher = async () => {
@@ -33,7 +33,7 @@ const GifSearch = ({ setSearchTerm, setData, random }) => {
                     />
                 <button type="submit">search</button>
             </form>
-            <GifRandom random={random} setData={setData} />
+            
         </div>
     )
 }

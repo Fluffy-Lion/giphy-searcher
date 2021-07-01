@@ -1,11 +1,14 @@
+import { useEffect } from "react"
 import React from 'react'
 
-const GifItem = (props) => {
-    let key = props.id
-    let url = props.gif
-    // console.log("key = ", key)
-    // console.log("url = ", url)
-    return (
+const GifItem = ({ data }) => {
+
+    
+    let key = data.id
+    let url = data.images.fixed_height.url
+   
+   
+    return ( 
         <div>
             <h4>gif item</h4>
             <img key={key} src={url} />

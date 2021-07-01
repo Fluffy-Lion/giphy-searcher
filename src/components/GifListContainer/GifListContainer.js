@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import GifList from '../GifList/GifList'
-import GifRandom from '../GifRandom/GifRandom'
 import GifSearch from '../GifSearch/GifSearch'
 import Loading from '../Loading/Loading'
-
+import GifItem from '../GifItem/GifItem'
+import Random from '../Random/Random'
 const GifListContainer = ({ data, isLoading, setData, random }) => {
 
     const [searchTerm, setSearchTerm] = useState("")
@@ -15,11 +15,10 @@ const GifListContainer = ({ data, isLoading, setData, random }) => {
     return (
         <div>
             <h2>gif list cont</h2>
-            <GifSearch random={random} setSearchTerm={setSearchTerm} setData={setData}/>
+            <GifSearch  setSearchTerm={setSearchTerm} setData={setData}/>
             <p>searching for...{searchTerm}</p>
-
-            <GifList  data={data}/>     
-            {/* <GifRandom setData={setData} /> */}
+            <GifList  data={data}/> 
+            <Random setData={setData} random={random} data={data}/>
         </div>
     )
 }
