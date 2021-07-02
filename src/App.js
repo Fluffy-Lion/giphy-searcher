@@ -7,7 +7,8 @@ const App = () => {
 
   const [data, setData] = useState([])
   const [isLoading, setIsLoading] = useState(false)
-  
+  const [randomHit, setRandomHit] = useState(false)
+  const [single, setSingle] = useState({})
   const random = async () => {
     const res = await axios("https://api.giphy.com/v1/gifs/random", {
         params: {
@@ -15,8 +16,12 @@ const App = () => {
             // q: input
         }
     }
-    )
-    setData(res.data.data)
+    ).catch(e => {
+      console.log(e)
+    })
+    setData([])
+    setSingle(res.data.data)
+    console.log(single)
     // setIsLoading(false)
 }
   useEffect(() => {
@@ -38,7 +43,14 @@ const App = () => {
     <div className="App">
      <h1>gwify swercher</h1>
      <div>
-       <GifListContainer random={random} isLoading={isLoading} data={data} setData={setData}/>
+       <GifListContainer 
+        single={single}
+        randomHit={randomHit} 
+        random={random} 
+        isLoading={isLoading} 
+        data={data} 
+        setData={setData}
+      />
      </div>
     </div>
   );

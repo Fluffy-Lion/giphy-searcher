@@ -1,9 +1,6 @@
-import { useEffect } from "react"
 import React from 'react'
 
 const GifItem = ({ data }) => {
-
-    
     let key = data.id
     let url = data.images.fixed_height.url
    
