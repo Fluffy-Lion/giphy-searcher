@@ -1,38 +1,23 @@
 
 import { useEffect, useState } from 'react'
+import PopUp from '../GifItem/PopUp'
+const Random = ({ random, single, seen, togglePop }) => {
 
-const Random = ({ random, single }) => {
- const [toggle, setToggle] = useState(false)
- 
- const handler = () => {
+    let handler = () => {
         random()
-        // setToggle(true)
- }
+        togglePop()
+    }
 
     return (
         <div>
-            <h1>random</h1>
-            {!toggle && single ?
-                <RandomButton handler={handler}/>
-                :
-                <RandomGif simgle={single} />
-            }
+            <button onClick={handler}>random</button>
+            {seen ? <PopUp togglePop={togglePop} single={single}/> : null}
         </div>
     )
 }
 
-const RandomButton = ({ handler }) => {
-    return (
-        <button onClick={handler}>random</button>
-    )
-}
 
-const RandomGif = ({ single }) => {
-    let url = single.images.fixed_height.url
-    return (
-        
-        <img src={url} />
-    )
-}
+
+
 
 export default Random

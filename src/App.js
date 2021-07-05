@@ -7,9 +7,15 @@ const App = () => {
 
   const [data, setData] = useState([])
   const [isLoading, setIsLoading] = useState(false)
-  const [randomHit, setRandomHit] = useState(false)
+  const [seen, setSeen] = useState(false)
+
+  const togglePop = () => {
+    setSeen(!seen)
+  }
+
   const [single, setSingle] = useState({})
   const random = async () => {
+    setIsLoading(true)
     const res = await axios("https://api.giphy.com/v1/gifs/random", {
         params: {
             api_key: process.env.REACT_APP_API_KEY,
@@ -19,10 +25,9 @@ const App = () => {
     ).catch(e => {
       console.log(e)
     })
-    setData([])
+    // setData([])
     setSingle(res.data.data)
-    console.log(single)
-    // setIsLoading(false)
+    setIsLoading(false)
 }
   useEffect(() => {
     const fetch = async () => {
@@ -45,11 +50,12 @@ const App = () => {
      <div>
        <GifListContainer 
         single={single}
-        randomHit={randomHit} 
         random={random} 
         isLoading={isLoading} 
         data={data} 
         setData={setData}
+        seen={seen}
+        togglePop={togglePop}
       />
      </div>
     </div>
