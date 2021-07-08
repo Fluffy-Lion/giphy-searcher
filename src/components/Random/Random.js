@@ -7,7 +7,7 @@ const Random = ({ random, single, seen, togglePop }) => {
         random()
         togglePop()
     }
-
+    
     return (
         <div>
             <button onClick={handler}>random</button>

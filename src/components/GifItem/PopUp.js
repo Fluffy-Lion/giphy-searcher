@@ -1,6 +1,7 @@
 import './popUp.css'
 
 const PopUp = ({ single, togglePop }) => {
+  if(single.images !== undefined){
     let url = single.images.fixed_height.url
     return (
         <div className="modal">
@@ -12,6 +13,11 @@ const PopUp = ({ single, togglePop }) => {
         </div>
       </div>
     )
+    }else{
+      <div>
+        <h1>not found</h1>
+      </div>
+    }
 }
 
 export default PopUp

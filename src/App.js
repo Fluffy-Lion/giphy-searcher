@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import './App.css';
 import GifListContainer from './components/GifListContainer/GifListContainer';
+import Random from './components/Random/Random';
 import axios from 'axios'
 
 const App = () => {
@@ -15,7 +16,7 @@ const App = () => {
 
   const [single, setSingle] = useState({})
   const random = async () => {
-    setIsLoading(true)
+    // setIsLoading(true)
     const res = await axios("https://api.giphy.com/v1/gifs/random", {
         params: {
             api_key: process.env.REACT_APP_API_KEY,
@@ -27,10 +28,11 @@ const App = () => {
     })
     // setData([])
     setSingle(res.data.data)
-    setIsLoading(false)
+    // setIsLoading(false)
 }
   useEffect(() => {
     const fetch = async () => {
+      
       setIsLoading(true)
       const res = await axios("https://api.giphy.com/v1/gifs/trending", {
         params: {
@@ -48,6 +50,7 @@ const App = () => {
     <div className="App">
      <h1>gwify swercher</h1>
      <div>
+       
        <GifListContainer 
         single={single}
         random={random} 

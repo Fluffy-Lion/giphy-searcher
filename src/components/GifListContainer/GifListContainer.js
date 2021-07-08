@@ -20,7 +20,6 @@ const GifListContainer = ({ data, isLoading, setData, random, single, seen, togg
             togglePop={togglePop}
             seen={seen}
             single={single} setData={setData} random={random} data={data}/>
-
             <GifList  data={data}/> 
             
         </div>
