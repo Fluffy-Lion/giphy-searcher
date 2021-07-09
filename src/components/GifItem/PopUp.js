@@ -14,9 +14,13 @@ const PopUp = ({ single, togglePop }) => {
       </div>
     )
     }else{
-      <div>
-        <h1>not found</h1>
+      return (
+        <div className="modal">
+        <div className="modal_content">
+          <p>loading...</p>
+        </div>
       </div>
+      )
     }
 }
 
