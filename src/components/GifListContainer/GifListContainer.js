@@ -3,7 +3,7 @@ import GifList from '../GifList/GifList'
 import GifSearch from '../GifSearch/GifSearch'
 import Loading from '../Loading/Loading'
 import Random from '../Random/Random'
-const GifListContainer = ({ data, isLoading, setData, random, single, seen, togglePop }) => {
+const GifListContainer = ({ data, isLoading, setData, random, single, seen, togglePop, addToFavourite }) => {
 
     const [searchTerm, setSearchTerm] = useState("")
     
@@ -20,7 +20,7 @@ const GifListContainer = ({ data, isLoading, setData, random, single, seen, togg
             togglePop={togglePop}
             seen={seen}
             single={single} setData={setData} random={random} data={data}/>
-            <GifList  data={data}/> 
+            <GifList  addToFavourite={addToFavourite} data={data}/> 
             
         </div>
     )

@@ -7,6 +7,7 @@ import axios from 'axios'
 const App = () => {
 
   const [data, setData] = useState([])
+  const [favourites, setFavourites] = useState([])
   const [isLoading, setIsLoading] = useState(false)
   const [seen, setSeen] = useState(false)
 
@@ -27,6 +28,19 @@ const App = () => {
     })
     setSingle(res.data.data)
 }
+ const addToFavourite = (gifItem) => {
+   setFavourites([...favourites, gifItem])
+ }
+
+  useEffect(() => {
+    if(localStorage.getItem("fav")){
+      setFavourites(JSON.parse(localStorage.getItem("fav")))
+    }
+  },[])
+  useEffect(() => {
+    localStorage.setItem("fav", JSON.stringify(favourites))
+  }, [favourites])
+
   useEffect(() => {
     const fetch = async () => {
       
@@ -42,6 +56,8 @@ const App = () => {
       setIsLoading(false)
     }
     fetch()
+
+
   },[])
   return (
     <div className="App">
@@ -56,6 +72,8 @@ const App = () => {
         setData={setData}
         seen={seen}
         togglePop={togglePop}
+
+        addToFavourite={addToFavourite}
       />
      </div>
     </div>

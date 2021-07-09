@@ -1,14 +1,14 @@
 import React from 'react'
 
-const GifItem = ({ data }) => {
+const GifItem = ({ data, addToFavourite }) => {
     let key = data.id
     let url = data.images.fixed_height.url
    
    
     return ( 
         <div>
-            <h4>gif item</h4>
             <img key={key} src={url} />
+            <button onClick={() => addToFavourite(data)}>add</button>
         </div>
     )
 }

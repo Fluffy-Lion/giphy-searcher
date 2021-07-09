@@ -1,9 +1,9 @@
 
 import GifItem from '../GifItem/GifItem'
 
-const GifList = ({ data }) => {
+const GifList = ({ data, addToFavourite }) => {
         const gifItems = data.map((data) => {
-        return <GifItem  key={data.id} data={data}/>
+        return <GifItem  addToFavourite={addToFavourite} key={data.id} data={data}/>
     })
     return <ul>{gifItems}</ul>
 
