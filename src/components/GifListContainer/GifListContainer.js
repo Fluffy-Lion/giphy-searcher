@@ -16,12 +16,8 @@ const GifListContainer = ({ data, isLoading, setData, random, single, seen, togg
             <h2>gif list cont</h2>
             <GifSearch  setSearchTerm={setSearchTerm} setData={setData}/>
             <p>searching for...{searchTerm}</p>
-            <Random 
-            togglePop={togglePop}
-            seen={seen}
-            single={single} setData={setData} random={random} data={data}/>
+            <Random togglePop={togglePop} seen={seen} single={single} random={random} />
             <GifList  addToFavourite={addToFavourite} data={data}/> 
-            
         </div>
     )
 }

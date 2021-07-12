@@ -4,7 +4,7 @@ const GifItem = ({ data, addToFavourite }) => {
     let key = data.id
     let url = data.images.fixed_height.url
    
-   
+
     return ( 
         <div>
             <img key={key} src={url} />
