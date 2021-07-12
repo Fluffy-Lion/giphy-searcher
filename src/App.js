@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react'
+import { BrowserRouter as Router, Switch, Link, Route} from 'react-router-dom'
 import './App.css';
 import GifListContainer from './components/GifListContainer/GifListContainer';
 import Random from './components/Random/Random';
+import GifFav from './components/GifFav/GifFav';
 import axios from 'axios'
 
 const App = () => {
@@ -63,18 +65,36 @@ const App = () => {
     <div className="App">
      <h1>gwify swercher</h1>
      <div>
-       
-       <GifListContainer 
-        single={single}
-        random={random} 
-        isLoading={isLoading} 
-        data={data} 
-        setData={setData}
-        seen={seen}
-        togglePop={togglePop}
-
-        addToFavourite={addToFavourite}
-      />
+       <Router>
+         <div>
+           <nav>
+             <li>
+              <Link to="/">home</Link>
+             </li>
+             <li>
+               <Link to="/favourite">view favourites</Link>
+             </li>
+           </nav>
+         </div>
+         <Switch>
+          <Route exact path="/">
+            <GifListContainer 
+              single={single}
+              random={random} 
+              isLoading={isLoading} 
+              data={data} 
+              setData={setData}
+              seen={seen}
+              togglePop={togglePop}
+              
+              addToFavourite={addToFavourite}
+              />
+            </Route>
+          <Route path="/favourite">
+            <GifFav favourites={favourites} />
+          </Route>
+          </Switch>
+        </Router>
      </div>
     </div>
   );
