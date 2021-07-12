@@ -91,7 +91,7 @@ const App = () => {
               />
             </Route>
           <Route path="/favourite">
-            <GifFav favourites={favourites} />
+            <GifFav favourites={favourites} setFavourites={setFavourites} />
           </Route>
           </Switch>
         </Router>
