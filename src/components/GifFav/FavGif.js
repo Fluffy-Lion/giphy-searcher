@@ -1,22 +1,21 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
-const FavGif = ({ favourite, favourites, setFavourites, id }) => {
-    const [newFav, setNewFav] = useState([])
-
-    const imageSource = favourite.images.fixed_height.url
-    const removeGif = ({ id }) => {
-        const temp = [...favourites]
-        // let num = id + 1
-        temp.splice(id, 1)
-        setFavourites(temp)
+const FavGif = ({ favourite, favourites, setFavourites, removeHandler, num }) => {
+   
     
-    }
+    const imageSource = favourite.images.fixed_height.url
+    // const removeGif = ({ num }) => {
+        
+    //     setArr.splice(num, 1)
+        
+    
+    // }
 
     return (
         <div>
             <img src={imageSource} />
             {/* <h1>gif</h1> */}
-            <button onClick={() => removeGif(id)}>remove gif</button>
+            <button onClick={() => removeHandler(num)}>remove gif</button>
         </div>
     )
 }
