@@ -17,7 +17,7 @@ const GifFav = ({ favourites, setFavourites }) => {
                 <button onClick={clearHandler}>clear favourites</button>
             </div>
             {favourites.map((favourite, index) => {
-                    return <FavGif favourites={favourites} removeHandler={removeHandler} setFavourites={setFavourites} favourite={favourite} key={index} num={index} />
+                    return <FavGif removeHandler={removeHandler}  favourite={favourite} key={index} num={index} />
             })}
         </div>
     )
