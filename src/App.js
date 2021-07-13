@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 import { BrowserRouter as Router, Switch, Link, Route} from 'react-router-dom'
 import './App.css';
 import GifListContainer from './components/GifListContainer/GifListContainer';
-import Random from './components/Random/Random';
 import GifFav from './components/GifFav/GifFav';
 import axios from 'axios'
 
@@ -33,9 +32,6 @@ const App = () => {
  const addToFavourite = (gifItem) => {
    setFavourites([...favourites, gifItem])
  }
-//  const clearSearch = () => {
-//    fetch()
-//  }
 
   useEffect(() => {
     if(localStorage.getItem("fav")){
@@ -88,6 +84,7 @@ const App = () => {
               togglePop={togglePop}
               fetch={fetch}
               addToFavourite={addToFavourite}
+              favourites={favourites}
               />
             </Route>
           <Route path="/favourite">
