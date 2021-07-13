@@ -2,8 +2,8 @@ import React, { useState } from 'react'
 import axios from 'axios'
 
 
-const GifSearch = ({ setSearchTerm, setData }) => {
-    const [input, setInput] = useState("")
+const GifSearch = ({ setSearchTerm, setData, input, setInput }) => {
+    
     const [isLoading, setIsLoading] = useState(false)
     const searcher = async () => {
         setIsLoading(true)

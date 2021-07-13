@@ -33,6 +33,9 @@ const App = () => {
  const addToFavourite = (gifItem) => {
    setFavourites([...favourites, gifItem])
  }
+//  const clearSearch = () => {
+//    fetch()
+//  }
 
   useEffect(() => {
     if(localStorage.getItem("fav")){
@@ -42,24 +45,21 @@ const App = () => {
   useEffect(() => {
     localStorage.setItem("fav", JSON.stringify(favourites))
   }, [favourites])
-
-  useEffect(() => {
-    const fetch = async () => {
+  const fetch = async () => {
       
-      setIsLoading(true)
-      const res = await axios("https://api.giphy.com/v1/gifs/trending", {
-        params: {
-          api_key: process.env.REACT_APP_API_KEY,
-          limit: 20
-        }
+    setIsLoading(true)
+    const res = await axios("https://api.giphy.com/v1/gifs/trending", {
+      params: {
+        api_key: process.env.REACT_APP_API_KEY,
+        limit: 20
       }
-      )
-      setData(res.data.data)
-      setIsLoading(false)
     }
+    )
+    setData(res.data.data)
+    setIsLoading(false)
+  }
+  useEffect(() => {
     fetch()
-
-
   },[])
   return (
     <div className="App">
@@ -86,7 +86,7 @@ const App = () => {
               setData={setData}
               seen={seen}
               togglePop={togglePop}
-              
+              fetch={fetch}
               addToFavourite={addToFavourite}
               />
             </Route>
