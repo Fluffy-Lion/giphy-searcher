@@ -1,0 +1,36 @@
+* {
+    font-family: Helvetica, sans-serif;
+    box-sizing: border-box;
+}
+
+@media all and (max-width: 560px) and (min-width: 200px){
+    #App {
+        border: solid red 4px;
+        background-color: greenyellow;
+    }
+
+    #header {
+        border: pink solid 4px;
+        font-size: 50px;
+        
+    }
+}
+
+/* #App {
+    border: solid red 4px;
+    background-color: rgb(47, 113, 255);
+} */
+
+#header {
+    text-align: center;
+    margin: 0px;
+    
+}
+#navWrapper {
+    border: rgb(238, 111, 111) solid 3px;
+}
+
+nav {
+    border: rgb(158, 253, 146) solid 3px;
+}
+
